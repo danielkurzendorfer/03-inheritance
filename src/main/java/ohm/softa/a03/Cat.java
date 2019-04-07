@@ -26,11 +26,11 @@ public class Cat {
 		this.awake = awake;
 		this.digest = digest;
 
-		this.state = new SleepingState(sleep);
+		state = new SleepingState(sleep);
 	}
 
 	public void tick(){
-		state.tick(this);
+		this.state = state.tick(this);
 	}
 
 	/**
