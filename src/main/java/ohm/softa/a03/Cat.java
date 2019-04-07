@@ -20,16 +20,13 @@ public class Cat {
 
 	private final String name;
 
-	private int time = 0;
-	private int timeDigesting = 0;
-
 	public Cat(String name, int sleep, int awake, int digest) {
 		this.name = name;
 		this.sleep = sleep;
 		this.awake = awake;
 		this.digest = digest;
 
-		this.state = new SleepingState(10);
+		this.state = new SleepingState(sleep);
 	}
 
 	public void tick(){
@@ -46,8 +43,7 @@ public class Cat {
 		logger.info("You feed the cat...");
 
 		// change state and reset the timer
-		state = new DigestingState(0);
-		timeDigesting = 0;
+		this.state = ((HungryState)state).feed(this);
 	}
 
 	public int getSleep() {

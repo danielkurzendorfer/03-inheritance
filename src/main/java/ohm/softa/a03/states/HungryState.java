@@ -9,7 +9,14 @@ public class HungryState extends State {
     }
 
     @Override
-    protected State successor(Cat cat) {
-        return null;
+    public State successor(Cat cat) {
+        logger.info("Katze ist zu lange hungrig");
+        return new DeathState();
+    }
+
+    public State feed(Cat cat) {
+        logger.info("Katze wird gefüttert");
+
+        return new DigestingState(cat.getDigest(), duration - time);
     }
 }

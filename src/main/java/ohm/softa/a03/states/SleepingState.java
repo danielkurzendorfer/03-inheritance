@@ -10,7 +10,8 @@ public class SleepingState extends State {
     }
 
     @Override
-    protected State successor(Cat cat) {
-        return null;
+    public State successor(Cat cat) {
+        logger.info("Katze wird hungrig");
+        return new HungryState(cat.getAwake());
     }
 }

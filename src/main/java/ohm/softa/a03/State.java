@@ -4,25 +4,29 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public abstract class State {
-    private static final Logger logger = LogManager.getLogger();
+    protected static final Logger logger = LogManager.getLogger();
 
-    private int time = 0;
-    private int duration;
+    protected int time = 0;
+    protected int duration;
 
     protected State(int duration) {
         this.duration = duration;
     }
 
     final State tick (Cat cat) {
+        if(duration < 0)
+            return this;
+
         time = time + 1;
 
         if(time < duration) {
             logger.info("still in {}", getClass().getSimpleName());
             return this;
+        } else {
+            return successor(cat);
         }
-        return successor(cat);
 
     }
 
-    protected abstract State successor(Cat cat);
+    public abstract State successor(Cat cat);
 }

@@ -10,7 +10,8 @@ public class PlayfulState extends State {
     }
 
     @Override
-    protected State successor(Cat cat) {
-        return null;
+    public State successor(Cat cat) {
+        logger.info("Katze geht schlafen");
+        return new SleepingState(cat.getSleep());
     }
 }
