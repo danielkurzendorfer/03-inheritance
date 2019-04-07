@@ -1,4 +1,15 @@
 package ohm.softa.a03.states;
 
-public class DigestingState {
+import ohm.softa.a03.Cat;
+import ohm.softa.a03.State;
+
+public class DigestingState extends State {
+    public DigestingState(int duration) {
+        super(duration);
+    }
+
+    @Override
+    protected State successor(Cat cat) {
+        return null;
+    }
 }

@@ -1,4 +1,16 @@
 package ohm.softa.a03.states;
 
-public class PlayfulState {
+import ohm.softa.a03.Cat;
+import ohm.softa.a03.State;
+
+public class PlayfulState extends State {
+
+    public PlayfulState(int duration) {
+        super(duration);
+    }
+
+    @Override
+    protected State successor(Cat cat) {
+        return null;
+    }
 }
