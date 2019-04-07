@@ -50,6 +50,18 @@ public class Cat {
 		timeDigesting = 0;
 	}
 
+	public int getSleep() {
+		return sleep;
+	}
+
+	public int getAwake() {
+		return awake;
+	}
+
+	public int getDigest() {
+		return digest;
+	}
+
 	public boolean isAsleep() {
 		return state instanceof SleepingState;
 	}
