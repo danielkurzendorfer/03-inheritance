@@ -1,4 +1,15 @@
 package ohm.softa.a03.states;
 
-public class DeathState {
+import ohm.softa.a03.Cat;
+import ohm.softa.a03.State;
+
+public class DeathState extends State {
+    protected DeathState(int duration) {
+        super(duration);
+    }
+
+    @Override
+    public State successor(Cat cat) {
+        return null;
+    }
 }

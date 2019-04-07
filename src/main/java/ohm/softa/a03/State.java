@@ -24,5 +24,5 @@ public abstract class State {
 
     }
 
-    abstract State successor(Cat cat);
+    protected abstract State successor(Cat cat);
 }
